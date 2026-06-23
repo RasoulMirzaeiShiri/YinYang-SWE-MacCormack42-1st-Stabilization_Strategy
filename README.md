@@ -1,5 +1,5 @@
 # Shallow Water Model on a Yin–Yang Grid (McCormack Scheme)
-
+# This repository contains the source code accompanying a manuscript currently under peer review.
 ## Overview
 
 This repository contains a Fortran 90 implementation of a numerical model for solving the shallow water equations on a Yin–Yang grid. The model employs a fourth-order compact McCormack scheme combined with a stability enhancement strategy based on overlapping subdomains and inter-subdomain prognostic data transfer.
