@@ -26,7 +26,7 @@ The model includes two standard benchmark test cases:
 A classical test for evaluating the model's ability to maintain large-scale wave structures on the sphere.
 
 ### 2. Midlatitude Unstable Tropospheric Jet 
-A baroclinic jet instability test case based on Gallewsky et al. (2004), used to evaluate the model's ability to capture dynamically unstable flow evolution.
+An unstable tropospheric jet test case based on Gallewsky et al. (2004), used to evaluate the model's ability to capture dynamically unstable flow evolution.
 
 ---
 
