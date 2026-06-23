@@ -27,6 +27,11 @@ A classical test for evaluating the model's ability to maintain large-scale wave
 
 ### 2. Midlatitude Unstable Tropospheric Jet 
 An unstable tropospheric jet test case based on Gallewsky et al. (2004), used to evaluate the model's ability to capture dynamically unstable flow evolution.
+## Requirements
+
+- Fortran compiler (gfortran recommended)
+- GNU Make
+- Tecplot (for visualization of output files)
 
 ---
 
