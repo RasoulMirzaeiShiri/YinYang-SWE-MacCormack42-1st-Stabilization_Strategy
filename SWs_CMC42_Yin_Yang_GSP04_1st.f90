@@ -685,7 +685,7 @@ endif
 !Computing Vorticity and Divergence
 !********************************************************************************************************************
 
-if(n*delt/21600.0d0==dble(floor(n*delt/21600.0d0)))then
+if(dabs(n*delt/21600.0d0-dble(floor(n*delt/21600.0d0)))<=1.0d-10)then
 
 
 
