@@ -15,7 +15,8 @@ integer,parameter::nx=256,ny=(nx/2)+1,days=12
 integer::i,l,n,j,my,n_epsilon,knex,kney
 REAL*8,parameter::delt=160.0d0
 REAL*8::a2,a3,a4,t,lx,ly,pi,twopi,dlanda,dphi,top_x_limit,top_y_limit&
-,aa,a12,a13,dtime,ta(2),bbbb,anoo
+,aa,a12,a13,dtime,bbbb,anoo
+REAL::ta(2)
 REAL*8::hene(nx,ny),pne(ny),lne(nx),u2(nx,ny)&
 ,omega,zita(nx,ny),delta(nx,ny),v2(nx,ny)&
 ,henee(nx,ny),u1ein(nx,ny),v1ein(nx,ny)&
@@ -307,7 +308,8 @@ dvcosy(i,j)=dccy(i,j+kney)
 enddo
 enddo
 
-call RK_init_swe(u1n,v1n,hen1,dux,duy,dvx,dvy,dvcosy,dhx,dhy,nx,my,a2,hun1,hvn1,hhn1,hhun1,hhvn1,hhhn1,pn,fon,delt,u1n,v1n,hen1)
+call RK_init_swe(u1n,v1n,hen1,dux,duy,dvx,dvy,dvcosy,dhx,dhy,nx,my,a2,hun1,hvn1,hhn1,hhun1,hhvn1&
+,hhhn1,pn,fon,delt,u1n,v1n,hen1)
 
 !Yang component
 
@@ -350,7 +352,8 @@ enddo
 enddo
 
 
-call RK_init_swe(u1e,v1e,hee1,dux,duy,dvx,dvy,dvcosy,dhx,dhy,nx,my,a2,hue1,hve1,hhe1,hhue1,hhve1,hhhe1,pe,foe,delt,u1e,v1e,hee1)
+call RK_init_swe(u1e,v1e,hee1,dux,duy,dvx,dvy,dvcosy,dhx,dhy,nx,my,a2,hue1,hve1,hhe1,hhue1&
+,hhve1,hhhe1,pe,foe,delt,u1e,v1e,hee1)
 
 !********************************************************************************************************************
 !Second step
@@ -391,7 +394,8 @@ do j=1,my
 dvcosy(i,j)=dccy(i,j+kney)
 enddo
 enddo
-call RK_init_swe(u1n,v1n,hen1,dux,duy,dvx,dvy,dvcosy,dhx,dhy,nx,my,a3,hun2,hvn2,hhn2,hhun2,hhvn2,hhhn2,pn,fon,delt,hhun1,hhvn1,hhhn1)
+call RK_init_swe(u1n,v1n,hen1,dux,duy,dvx,dvy,dvcosy,dhx,dhy,nx,my,a3,hun2,hvn2,hhn2,hhun2,hhvn2&
+,hhhn2,pn,fon,delt,hhun1,hhvn1,hhhn1)
 
 !Yang component
 
@@ -507,7 +511,8 @@ do j=1,my
 dvcosy(i,j)=dccy(i,j+kney)
 enddo
 enddo
-call RK_init_swe(u1e,v1e,hee1,dux,duy,dvx,dvy,dvcosy,dhx,dhy,nx,my,a4,hue3,hve3,hhe3,hhue3,hhve3,hhhe3,pe,foe,delt,hhue2,hhve2,hhhe2)
+call RK_init_swe(u1e,v1e,hee1,dux,duy,dvx,dvy,dvcosy,dhx,dhy,nx,my,a4,hue3,hve3,hhe3,hhue3,hhve3&
+,hhhe3,pe,foe,delt,hhue2,hhve2,hhhe2)
 
 
 !********************************************************************************************************************
@@ -549,7 +554,8 @@ do j=1,my
 dvcosy(i,j)=dccy(i,j+kney)
 enddo
 enddo
-call RK_init_swe(u1n,v1n,hen1,dux,duy,dvx,dvy,dvcosy,dhx,dhy,nx,my,a4,hun4,hvn4,hhn4,hhun4,hhvn4,hhhn4,pn,fon,delt,hhun3,hhvn3,hhhn3)
+call RK_init_swe(u1n,v1n,hen1,dux,duy,dvx,dvy,dvcosy,dhx,dhy,nx,my,a4,hun4,hvn4,hhn4,hhun4,hhvn4,hhhn4&
+,pn,fon,delt,hhun3,hhvn3,hhhn3)
 call RK4_final(hen1,hen2,hhn1,hhn2,hhn3,hhn4,nx,my)
 call RK4_final(u1n,u2n,hun1,hun2,hun3,hun4,nx,my)
 call RK4_final(v1n,v2n,hvn1,hvn2,hvn3,hvn4,nx,my)
@@ -588,7 +594,8 @@ do j=1,my
 dvcosy(i,j)=dccy(i,j+kney)
 enddo
 enddo
-call RK_init_swe(u1e,v1e,hee1,dux,duy,dvx,dvy,dvcosy,dhx,dhy,nx,my,a4,hue4,hve4,hhe4,hhue4,hhve4,hhhe4,pe,foe,delt,hhue3,hhve3,hhhe3)
+call RK_init_swe(u1e,v1e,hee1,dux,duy,dvx,dvy,dvcosy,dhx,dhy,nx,my,a4,hue4,hve4,hhe4,hhue4,hhve4&
+,hhhe4,pe,foe,delt,hhue3,hhve3,hhhe3)
 call RK4_final(hee1,hee2,hhe1,hhe2,hhe3,hhe4,nx,my)
 call RK4_final(u1e,u2e,hue1,hue2,hue3,hue4,nx,my)
 call RK4_final(v1e,v2e,hve1,hve2,hve3,hve4,nx,my)
