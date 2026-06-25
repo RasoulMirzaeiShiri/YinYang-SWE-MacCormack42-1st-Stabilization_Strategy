@@ -997,10 +997,16 @@ end subroutine
 !**************************************************************************
 subroutine distance(phi1,phi2,landa1,landa2,rr)
 implicit none
-real*8::phi1,phi2,landa1,landa2,rr,pi,aa
+real*8::phi1,phi2,landa1,landa2,rr,pi,aa,arg
 aa=6.37122d6
 pi=2.d0*dasin(1.0d0)
-rr=aa*dacos(dsin(phi1)*dsin(phi2)+dcos(phi1)*dcos(phi2)*dcos(landa1-landa2))
+arg=dsin(phi1)*dsin(phi2)+dcos(phi1)*dcos(phi2)*dcos(landa1-landa2)
+if(arg>=1.0d0)then
+arg=1.0d0
+elseif(arg<=-1.0d0)then
+arg=-1.0d0
+endif
+rr=aa*dacos(arg)
 return
 end subroutine
 !**************************************************************************
