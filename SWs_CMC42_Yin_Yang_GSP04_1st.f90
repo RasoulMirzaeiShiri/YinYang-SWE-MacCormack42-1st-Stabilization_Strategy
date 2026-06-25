@@ -685,7 +685,7 @@ endif
 !Computing Vorticity and Divergence
 !********************************************************************************************************************
 
-if(dabs(dale(n)*delt/21600.0d0-dble(floor(dble(n)*delt/21600.0d0)))<=1.0d-8)then
+if(dabs(dble(n)*delt/21600.0d0-dble(floor(dble(n)*delt/21600.0d0)))<=1.0d-8)then
 
 
 
