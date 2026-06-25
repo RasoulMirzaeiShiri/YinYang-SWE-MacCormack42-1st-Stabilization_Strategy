@@ -10,10 +10,10 @@ program SWs_CMC42_Yin_Yang_GSP04_1st
 ! for validation and assessment of the numerical method.
 !************************************************************************************************************
 implicit none
-integer,parameter::nx=256,ny=(nx/2)+1,kx=512,ky=(kx/2)+1,days=8
+integer,parameter::nx=128,ny=(nx/2)+1,kx=512,ky=(kx/2)+1,days=6
 
 integer::i,l,n,j,my,n_epsilon,kney,k_cof
-REAL*8,parameter::delt=160.0d0
+REAL*8,parameter::delt=300.0d0
 REAL*8::a2,a3,a4,t,lx,ly,pi,twopi,dlanda,dphi,top_x_limit,top_y_limit&
 ,aa,a12,a13,dtime,bbbb,anoo
 REAL::ta(2)
